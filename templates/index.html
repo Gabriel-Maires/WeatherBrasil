@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/css.css" />
+    <script src="backend.py"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <title>Weather Brasil</title>
+</head>
+
+<body>
+    <div class="toppage">
+        <div class="imagem">
+            <img src="/static/css/img/clima.png" alt="Weather Brasil" />
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="inputs">
+            <form action="result" method="post">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-light" id="basic-addon1">Insira os valores abaixo:</span>
+                        <input type="text" class="form-control" placeholder="Latitude" aria-label="Username"
+                            aria-describedby="basic-addon1" name="input1" autocomplete="latitude" />
+                        <input type="text" class="form-control" placeholder="Longitude" aria-label="Username"
+                            aria-describedby="basic-addon1" name="input2" autocomplete="longitude" />
+                        <input type="submit" href="#" class="btn btn-primary active" role="button" aria-pressed="true"
+                            value="Buscar" id="result"></input>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="resposta">
+        <form action="result" method="post">
+            {% for message in get_flashed_messages() %}
+            <h2>{{message}}</h2>
+            {% endfor %}
+        </form>
+
+    </div>
+    <div class="ajudaLocalizacao">
+        <div class="userhelp">
+            <h4>Não sabe sua localização em latitude e longitude?</h4>
+        </div>
+        <div class="botaoLocalizacao">
+            <a class="btn btn-primary btn-lg" href="https://www.latlong.net/" target="_blank">Clique Aqui!</a>
+        </div>
+           
+    </div>
+</body>
+
+</html>
